@@ -1,4 +1,5 @@
 FROM golang:1.10.0-alpine3.7
+RUN apk --no-cache add ca-certificates && apk update && apk add git
 COPY demo.go /demo/
 WORKDIR /demo/
 ENTRYPOINT ["/bin/ash"]
