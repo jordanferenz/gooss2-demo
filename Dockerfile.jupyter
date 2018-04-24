@@ -1,0 +1,14 @@
+FROM golang:1.10.0-alpine3.7
+COPY /packages/demo/ /go/src/demo/
+WORKDIR             /go/src/demo/
+RUN go build -i -o demo.a
+
+FROM yunabe/lgo:20180419
+COPY --chown=gopher /notebooks /notebooks
+COPY --chown=gopher /data /data
+COPY --chown=gopher --from=0 /go/src/demo/demo.a /lgo/pkg/demo.a
+COPY --chown=gopher /packages/demo/ /go/src/demo/
+WORKDIR /notebooks
+
+# To use JupyterLab, replace "notebook" with "lab".
+CMD ["jupyter", "lab", "--ip=0.0.0.0"]
