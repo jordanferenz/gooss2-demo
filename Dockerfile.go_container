@@ -1,0 +1,4 @@
+FROM golang:1.10.0-alpine3.7
+COPY demo.go /demo/
+WORKDIR /demo/
+ENTRYPOINT ["/bin/ash"]
