@@ -6,5 +6,5 @@ import (
 )
 
 func main() {
-	fmt.Printf("Is light a particle or wave? %s\n", light.Observe())
+	fmt.Printf("Is light a particle or a wave?\n\n>>> It is a %s", light.Observe())
 }
