@@ -1,5 +1,5 @@
 package light
 
 func Observe() string {
-	return "particle"
+	return "wave"
 }
